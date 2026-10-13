@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fix “No module named pandas” in Python | Beginner Guide</title>
+  <meta name="description" content="Fix Python's “No module named pandas” error. Install pandas in the right environment with steps for terminals, virtual environments, IDEs, and Jupyter.">
+  <meta name="theme-color" content="#f5f7f4">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Fix “No module named pandas” in Python">
+  <meta property="og:description" content="A beginner-friendly guide to installing pandas in the Python environment that runs your code.">
+  <meta property="og:locale" content="en_US">
+  <link rel="canonical" href="https://joshuapk2005-sudo.github.io/pandas-import-fix/">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="PyFix Guide home">
+        <span class="brand-mark" aria-hidden="true">P</span>
+        <span>PyFix Guide</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#fix">The fix</a>
+        <a href="#troubleshooting">Troubleshooting</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <article>
+      <header class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> PYTHON TROUBLESHOOTING</p>
+          <h1>How to fix <code>ModuleNotFoundError: No module named 'pandas'</code></h1>
+          <p class="hero-lede">Python cannot find pandas in the environment running your code. Install pandas through that same Python interpreter, then verify the import.</p>
+          <p class="updated">A practical beginner guide <span aria-hidden="true">·</span> Reviewed October 13, 2026</p>
+        </div>
+        <aside class="quick-answer" aria-labelledby="quick-answer-heading">
+          <span class="answer-label">THE QUICK FIX</span>
+          <h2 id="quick-answer-heading">Install into the Python you use</h2>
+          <pre><code>python -m pip install pandas</code></pre>
+          <p>Then run your script with that same <code>python</code>. On Windows, try <code>py -m pip install pandas</code> if you use the Python launcher.</p>
+        </aside>
+      </header>
+
+      <div class="article-layout">
+        <aside class="contents-card" aria-labelledby="contents-heading">
+          <h2 id="contents-heading">On this page</h2>
+          <nav aria-label="Table of contents">
+            <a href="#why">Why this happens</a>
+            <a href="#fix">Install and verify</a>
+            <a href="#environments">Virtual environments</a>
+            <a href="#troubleshooting">Troubleshooting table</a>
+            <a href="#faq">Frequently asked questions</a>
+            <a href="#summary">Summary</a>
+          </nav>
+        </aside>
+
+        <div class="article-body">
+          <section id="why">
+            <p class="section-kicker">START HERE</p>
+            <h2>Why does Python say “No module named pandas”?</h2>
+            <p><code>ModuleNotFoundError</code> means the Python interpreter running your program could not find an importable module named <code>pandas</code>. Most often, pandas is not installed in that interpreter's environment. It may be installed for another Python version, virtual environment, IDE interpreter, or Jupyter kernel.</p>
+            <p>The installable package is named <code>pandas</code>, and its Python import is also <code>pandas</code> (commonly imported as <code>pd</code>). Installing it once on your computer does not automatically make it available to every Python environment.</p>
+          </section>
+
+          <section id="fix">
+            <p class="section-kicker">STEP BY STEP</p>
+            <h2>How do I install pandas and check that it works?</h2>
+            <ol class="steps">
+              <li>
+                <h3>Open the terminal for the environment that runs your code</h3>
+                <p>If you work in an editor or notebook, first identify its selected Python interpreter or kernel. Installing in a separate system terminal may target a different environment.</p>
+              </li>
+              <li>
+                <h3>Install pandas with that interpreter</h3>
+                <p>Use <code>python -m pip</code> so pip is run by the selected Python, rather than an unqualified <code>pip</code> command.</p>
+                <div class="code-card">
+                  <span class="code-label">Windows (Python launcher)</span>
+                  <pre><code>py -m pip install pandas</code></pre>
+                </div>
+                <div class="code-card">
+                  <span class="code-label">macOS or Linux</span>
+                  <pre><code>python3 -m pip install pandas</code></pre>
+                </div>
+                <p>If your project already uses a virtual environment, activate it first and use <code>python -m pip install pandas</code> inside it. See <a href="#environments">the environment instructions below</a>.</p>
+              </li>
+              <li>
+                <h3>Verify the installation and interpreter</h3>
+                <p>Run these commands in the same terminal where you launch your program:</p>
+                <pre><code>python -c "import pandas as pd; print(pd.__version__)"
+python -c "import sys; print(sys.executable)"</code></pre>
+                <p>The first command prints the installed pandas version if the import succeeds. The second prints the exact Python executable. If you installed with <code>py -m pip</code> on Windows, use <code>py -c</code> for both checks; otherwise use the same <code>python</code> command you used to install.</p>
+              </li>
+              <li>
+                <h3>Run your program again</h3>
+                <pre><code>python your_script.py</code></pre>
+                <p>Replace <code>your_script.py</code> with your file's name. If you installed with the Windows launcher, run <code>py your_script.py</code> instead. In an IDE, select the same interpreter shown by <code>sys.executable</code>, then run the program again.</p>
+              </li>
+            </ol>
+            <div class="callout">
+              <strong>Still unsure which environment is active?</strong>
+              <p>Check where pandas is installed with <code>python -m pip show pandas</code>, or <code>py -m pip show pandas</code> if you installed with the Windows launcher. If no package details appear, install it using the same interpreter command.</p>
+            </div>
+          </section>
+
+          <section id="environments">
+            <p class="section-kicker">ENVIRONMENT-SPECIFIC HELP</p>
+            <h2>What if I use a virtual environment, IDE, or Jupyter?</h2>
+            <h3>Using a project virtual environment</h3>
+            <p>A virtual environment keeps a project's packages separate. Create one from your project folder, activate it, then install pandas there:</p>
+            <div class="code-card">
+              <span class="code-label">Windows PowerShell</span>
+              <pre><code>py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install pandas</code></pre>
+            </div>
+            <div class="code-card">
+              <span class="code-label">macOS or Linux</span>
+              <pre><code>python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install pandas</code></pre>
+            </div>
+            <p>After activation, <code>python</code> should point to the environment. If PowerShell blocks activation, use the Python executable inside <code>.venv</code> directly or follow the official <a href="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/">Python Packaging User Guide</a>; avoid changing machine-wide execution policy just to work around this import error.</p>
+
+            <h3>Using VS Code or another IDE</h3>
+            <p>Editors can run code with an interpreter different from your system terminal. Print <code>sys.executable</code> from the editor's run action, select that interpreter in the editor, and install pandas into it. The <a href="https://code.visualstudio.com/docs/python/environments">VS Code Python environments guide</a> explains interpreter selection.</p>
+
+            <h3>Using Jupyter Notebook</h3>
+            <p>In a notebook cell, use IPython's <code>%pip</code> command so installation targets the active kernel, then restart the kernel and retry the import:</p>
+            <pre><code>%pip install pandas
+import pandas as pd
+print(pd.__version__)</code></pre>
+
+            <h3>Using Conda</h3>
+            <p>If your project is managed with Conda, activate its environment and install with Conda rather than mixing package managers without a reason:</p>
+            <pre><code>conda activate my-environment
+conda install pandas</code></pre>
+            <p>Replace <code>my-environment</code> with your environment name. Select that same environment in your editor or notebook.</p>
+          </section>
+
+          <section id="troubleshooting">
+            <p class="section-kicker">FIND THE CAUSE</p>
+            <h2>What if installing pandas did not fix the error?</h2>
+            <div class="table-wrap">
+              <table>
+                <caption>Common pandas import symptoms, likely causes, and next steps</caption>
+                <thead>
+                  <tr><th scope="col">Symptom</th><th scope="col">Likely cause</th><th scope="col">What to try</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Install says successful, import still fails</th>
+                    <td>pip and the script use different Python environments.</td>
+                    <td>Run <code>python -m pip show pandas</code> and <code>python -c "import sys; print(sys.executable)"</code> using the interpreter that runs the script.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Works in terminal, fails in editor</th>
+                    <td>The editor selected a different interpreter.</td>
+                    <td>Print <code>sys.executable</code> from the editor and select or install pandas in that interpreter.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Fails in a notebook only</th>
+                    <td>The notebook kernel is different from the terminal environment.</td>
+                    <td>Run <code>%pip install pandas</code> in a cell, restart the kernel, and check the selected kernel.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Error mentions another module after pandas imports</th>
+                    <td>A separate optional dependency or another package is missing.</td>
+                    <td>Read the exact module name in the new error. Install the dependency required for that feature, not pandas again.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Import behaves strangely or resolves to a local file</th>
+                    <td>A project file or folder named <code>pandas.py</code> or <code>pandas</code> may shadow the real package.</td>
+                    <td>Rename the conflicting local file or folder and its related <code>__pycache__</code> entry, then restart Python.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><code>python</code> or pip command is not found</th>
+                    <td>Python may not be installed or available on PATH.</td>
+                    <td>On Windows, try the Python launcher command <code>py</code>. Otherwise install Python from its official source and reopen the terminal.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="faq">
+            <p class="section-kicker">QUICK ANSWERS</p>
+            <h2>Frequently asked questions</h2>
+            <div class="faq-list">
+              <details>
+                <summary>Is pandas the same thing as Python's built-in module?</summary>
+                <p>No. pandas is a third-party Python library. Install it into the environment you use; it is not included with Python itself.</p>
+              </details>
+              <details>
+                <summary>Should I run <code>pip install pandas</code> or <code>python -m pip install pandas</code>?</summary>
+                <p><code>python -m pip install pandas</code> is usually clearer because it invokes pip through that Python interpreter. On Windows, <code>py -m pip install pandas</code> uses the Python launcher.</p>
+              </details>
+              <details>
+                <summary>Why does <code>import pandas as pd</code> use “pd”?</summary>
+                <p><code>pd</code> is a widely used short alias for the pandas module. Install the package named <code>pandas</code>, then import it as <code>import pandas as pd</code>.</p>
+              </details>
+              <details>
+                <summary>Do I need to install pandas again for every project?</summary>
+                <p>Only when the project uses an environment where pandas is not installed. Separate virtual environments have separate packages; a shared environment can serve more than one project.</p>
+              </details>
+              <details>
+                <summary>What should I do if the install command reports an error?</summary>
+                <p>Read the full pip error before retrying. It may indicate a network issue, unsupported Python version, permissions issue, or environment problem. Consult the official <a href="https://pandas.pydata.org/docs/getting_started/install.html">pandas installation guide</a> and use a supported installation method for your setup.</p>
+              </details>
+            </div>
+          </section>
+
+          <section class="summary-card" id="summary">
+            <p class="section-kicker">IN SHORT</p>
+            <h2>The key fix</h2>
+            <p>Install pandas with the same Python interpreter that runs your code: <code>python -m pip install pandas</code>. If the error remains, compare the interpreter path, virtual environment, IDE selection, or notebook kernel before reinstalling.</p>
+          </section>
+
+          <footer class="article-footer">
+            <h2>Official references</h2>
+            <ul>
+              <li><a href="https://pandas.pydata.org/docs/getting_started/install.html">pandas: installation</a></li>
+              <li><a href="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/">Python Packaging User Guide: pip and virtual environments</a></li>
+              <li><a href="https://docs.python.org/3/library/venv.html">Python documentation: venv</a></li>
+              <li><a href="https://pip.pypa.io/en/stable/user_guide/">pip user guide</a></li>
+            </ul>
+            <p class="disclaimer">Commands and environment behavior can vary by setup. Check the official documentation for your Python distribution and tools.</p>
+          </footer>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>PyFix Guide</span>
+      <span>Clear answers for common Python errors.</span>
+    </div>
+  </footer>
+</body>
+</html>
