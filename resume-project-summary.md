@@ -31,6 +31,8 @@ Checks actually run for this project:
 - Sitemap parsed successfully as XML; `robots.txt` contains the expected allow and sitemap directives.
 - Opened the page in a browser at 320, 375, 520, 768, 1024, and 1365 CSS-pixel viewport widths; no document-level horizontal overflow was reported.
 - Keyboard Tab reached the skip link, which was visibly focused.
+- Pushed the source to the public GitHub repository `joshuapk2005-sudo/pandas-import-fix` on `main` (commit `12afa35`); verified the remote branch and fetched the published source files.
+- Checked the expected GitHub Pages URL; it returned HTTP 404, so the Pages site is not deployed/available yet.
 - Python commands were **not** executed because a Python runtime was unavailable in the environment.
 - No formal HTML conformance validator, automated accessibility audit, or Search Console measurement was run.
 

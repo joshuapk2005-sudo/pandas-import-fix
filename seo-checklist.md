@@ -23,6 +23,8 @@ Use this checklist to distinguish what is already in the project from what only 
 - [ ] Choose a GitHub account/repository name and confirm the intended Pages URL.
 - [x] Set the canonical, sitemap, and robots sitemap URLs to the expected repository Pages address: `https://joshuapk2005-sudo.github.io/pandas-import-fix/`.
 - [ ] Confirm that the URL shown under GitHub **Settings → Pages** matches; update all three URL references if it differs.
+- [x] Push the project source to the public `main` branch of `joshuapk2005-sudo/pandas-import-fix`.
+- [ ] Enable GitHub Pages for branch `main`, folder `/ (root)` under repository **Settings → Pages**.
 - [ ] Review the title, description, public URL, date, and content after the final edits.
 - [ ] Test the GitHub Pages preview on desktop and a real or emulated mobile viewport.
 - [ ] Check keyboard navigation, visible focus, text zoom, and color contrast in the rendered site.

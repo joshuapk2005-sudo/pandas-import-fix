@@ -25,7 +25,7 @@ Then open `http://localhost:8000`. Press Ctrl+C in the terminal to stop the loca
 
 ## Publish with GitHub Pages
 
-The public repository `joshuapk2005-sudo/pandas-import-fix` exists and was empty when checked. Source files still need to be pushed, and GitHub Pages still needs to be enabled in repository settings.
+The public repository `joshuapk2005-sudo/pandas-import-fix` has the project source on its `main` branch. GitHub Pages still needs to be enabled in repository settings.
 
 1. Upload the contents of this project folder to the repository root, or push them with Git:
 
